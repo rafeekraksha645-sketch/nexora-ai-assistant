@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NEXORA AI</title>
+<style>
+:root{--bg:#0a0d1f;--card:#131836;--line:#262d5c;--tx:#eaf0ff;--mu:#9aa6d6;--g:linear-gradient(135deg,#3b82f6,#8b5cf6 55%,#06b6d4);color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box;margin:0}
+html,body{background:var(--bg);color:var(--tx);font:15px/1.5 system-ui,"Noto Sans Tamil","Noto Sans Sinhala",sans-serif}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:#0a0d1fe6;backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.logo{color:var(--tx);text-decoration:none;font-weight:800;letter-spacing:2px}.logo b{background:var(--g);-webkit-background-clip:text;background-clip:text;color:transparent}
+select,input{background:var(--card);color:var(--tx);border:1px solid var(--line);border-radius:10px;padding:9px 10px;font:inherit;width:100%}
+select{width:auto}
+main{max-width:720px;margin:auto;padding:14px 14px calc(88px + env(safe-area-inset-bottom,0px))}
+.pg{animation:f .35s ease}@keyframes f{from{opacity:0;transform:translateY(8px)}}
+h1{font-size:28px}h2{font-size:19px;margin:14px 0 8px}p,.mu{color:var(--mu)}
+.hero{padding:26px 18px;border-radius:18px;background:radial-gradient(circle at 20% 0,#3b82f655,transparent 60%),radial-gradient(circle at 90% 100%,#06b6d444,transparent 55%),var(--card);border:1px solid var(--line)}
+.hero h1{background:var(--g);-webkit-background-clip:text;background-clip:text;color:transparent}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.sb{justify-content:space-between;align-items:center}
+.btn{display:inline-block;border:0;border-radius:12px;padding:11px 18px;background:var(--g);color:#fff;font:600 15px inherit;text-decoration:none;cursor:pointer}
+.btn.alt{background:transparent;border:1px solid var(--line)}.btn:disabled{opacity:.45}
+.grid{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));margin-top:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;display:block;color:var(--tx);text-decoration:none}
+.stat b{display:block;font-size:24px}.stat span{color:var(--mu);font-size:13px}
+.chip{display:inline-block;padding:4px 11px;border-radius:99px;border:1px solid var(--line);background:#0e1230;color:var(--mu);font-size:13px;cursor:pointer;margin:0 6px 6px 0}.chip.on{border-color:#8b5cf6;color:#fff}
+.empty{text-align:center;padding:22px 10px;border:1px dashed var(--line);border-radius:14px;color:var(--mu);margin-top:10px}
+nav{position:fixed;bottom:0;left:0;right:0;display:flex;background:#0a0d1ff2;backdrop-filter:blur(10px);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px);z-index:6}
+nav a{flex:1;text-align:center;padding:8px 2px;color:var(--mu);text-decoration:none;font-size:11px}nav a span{display:block;font-size:20px}nav a.on{color:#fff}nav a.on span{filter:drop-shadow(0 0 6px #8b5cf6)}
+#msgs{height:48vh;overflow:auto;display:flex;flex-direction:column;gap:8px;padding:6px 0}
+.m{max-width:85%;padding:9px 12px;border-radius:14px;white-space:pre-wrap;word-break:break-word}.m.u{align-self:flex-end;background:#3b3fa8}.m.b{align-self:flex-start;background:var(--card);border:1px solid var(--line)}
+.cp{display:block;margin-top:4px;background:none;border:0;color:var(--mu);font-size:13px;cursor:pointer}
+.dots i{display:inline-block;width:7px;height:7px;margin-right:4px;border-radius:50%;background:#06b6d4;animation:b 1s infinite}.dots i:nth-child(2){animation-delay:.2s}.dots i:nth-child(3){animation-delay:.4s}@keyframes b{50%{transform:translateY(-5px)}}
+.bar{height:7px;background:var(--line);border-radius:9px;overflow:hidden}.bar i{display:block;height:100%;background:var(--g);transition:width .4s}
+.opt{display:block;width:100%;text-align:left;margin-top:9px;padding:13px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--tx);font:inherit}.opt.ok{border-color:#22c55e;background:#14532d66}.opt.bad{border-color:#ef4444;background:#7f1d1d66}
+.big{font-size:44px;font-weight:800;margin:8px 0}form>*{margin-top:10px}
+#toast{position:fixed;left:50%;bottom:calc(86px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:#22285a;border:1px solid #8b5cf6;padding:9px 14px;border-radius:12px;z-index:9;max-width:90%;text-align:center}
+</style></head><body>
+<header><a class="logo" href="#home">NEXORA <b>AI</b></a>
+<select id="lang" aria-label="Language"><option value="en">English</option><option value="ta">தமிழ்</option><option value="si">සිංහල</option></select></header>
+<main>
+<section id="home" class="pg">
+<div class="hero"><h1>NEXORA AI</h1><p>YOUR AI. YOUR KNOWLEDGE. YOUR FUTURE.</p>
+<div class="row"><a class="btn" href="#ai" data-i="ai"></a><a class="btn alt" href="#login" data-i="login"></a></div></div>
+</section>
+
+<section id="ai" class="pg" hidden>
+<h2>🤖 <span data-i="ai"></span></h2>
+<div class="row" style="margin:0 0 8px"><button class="btn" id="nc" data-i="newchat"></button><button class="btn alt" id="dc" data-i="delchat"></button></div>
+<div id="hist"></div><div id="msgs"></div>
+<form id="cf" class="row" style="flex-wrap:nowrap"><input id="ci" data-p="ask" autocomplete="off"><button class="btn" data-i="send"></button></form>
+</section>
+
+
+
+
+
+<section id="profile" class="pg" hidden>
+<h2>👤 <span data-i="profile"></span></h2>
+<div class="card"><b data-i="guest"></b><div class="row"><a class="btn" href="#login" data-i="login"></a><a class="btn alt" href="#register" data-i="register"></a></div></div>
+</section>
+
+<section id="login" class="pg" hidden>
+<h2 data-i="login"></h2>
+<form class="auth"><input type="email" data-p="email" required><input type="password" data-p="pass" required><button class="btn" data-i="login"></button><p><a href="#login" class="fg" style="color:#06b6d4" data-i="forgot"></a> · <a href="#register" style="color:#06b6d4" data-i="register"></a></p></form>
+</section>
+
+<section id="register" class="pg" hidden>
+<h2 data-i="register"></h2>
+<form class="auth"><input data-p="name" required><input type="email" data-p="email" required><input type="password" data-p="pass" minlength="6" required><button class="btn" data-i="register"></button><p><a href="#login" style="color:#06b6d4" data-i="login"></a></p></form>
+</section>
+</main>
+<nav><a href="#home"><span>🏠</span><i data-i="home" style="font-style:normal"></i></a><a href="#ai"><span>🤖</span><i data-i="ai" style="font-style:normal"></i></a><a href="#profile"><span>👤</span><i data-i="profile" style="font-style:normal"></i></a></nav>
+<div id="toast" hidden></div>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const D={
+en:{home:'Home',ai:'AI Assistant',play:'ICT Champions',rewards:'Rewards',profile:'Profile',lb:'Leaderboard',coins:'Coins',quizzes:'Quizzes taken',ask:'Type your question…',send:'Send',newchat:'New chat',delchat:'Delete chat',copied:'Copied',notconn:'AI replies are not connected yet. The Gemini connection is added in a later stage through a secure server.',beginner:'Beginner',intermediate:'Intermediate',advanced:'Advanced',practice:'Practice',timec:'Time challenge',daily:'Daily challenge',comp:'ICT competitions',soon:'Coming in a later stage',next:'Next',finish:'Finish',score:'Score',retry:'Retry',back:'Back',login:'Log in',register:'Register',email:'Email',pass:'Password',name:'Full name',forgot:'Forgot password?',authnote:'Sign-in is not connected yet. Firebase login is added in Stage 2.',empty:'No data yet.',note:'Real rankings appear after Firebase is connected.',store:'Gift store',redh:'Redemption history',pending:'Pending',approved:'Approved',rejected:'Rejected',delivered:'Delivered',guest:'Guest (not signed in)',ach:'Achievement badges',tx:'Coin transactions',ok:'Correct!',bad:'Wrong',coinnote:'Coins are awarded by the server in a later stage.'},
+ta:{home:'முகப்பு',ai:'AI உதவியாளர்',play:'ICT சாம்பியன்ஸ்',rewards:'பரிசுகள்',profile:'சுயவிவரம்',lb:'தரவரிசை',coins:'நாணயங்கள்',quizzes:'முடித்த வினாடி வினாக்கள்',ask:'உங்கள் கேள்வியை எழுதுங்கள்…',send:'அனுப்பு',newchat:'புதிய அரட்டை',delchat:'அரட்டையை அழி',copied:'நகலெடுக்கப்பட்டது',notconn:'AI பதில்கள் இன்னும் இணைக்கப்படவில்லை. Gemini இணைப்பு பின்னர் பாதுகாப்பான சேவையகம் வழியாக சேர்க்கப்படும்.',beginner:'தொடக்கநிலை',intermediate:'இடைநிலை',advanced:'மேம்பட்ட',practice:'பயிற்சி',timec:'நேர சவால்',daily:'தினசரி சவால்',comp:'ICT போட்டிகள்',soon:'பின்னர் சேர்க்கப்படும்',next:'அடுத்து',finish:'முடி',score:'மதிப்பெண்',retry:'மீண்டும் முயற்சி',back:'பின்',login:'உள்நுழை',register:'பதிவு செய்',email:'மின்னஞ்சல்',pass:'கடவுச்சொல்',name:'முழு பெயர்',forgot:'கடவுச்சொல் மறந்துவிட்டதா?',authnote:'உள்நுழைவு இன்னும் இணைக்கப்படவில்லை. Firebase உள்நுழைவு நிலை 2-இல் சேர்க்கப்படும்.',empty:'இன்னும் தரவு இல்லை.',note:'Firebase இணைத்த பிறகு உண்மையான தரவரிசை தோன்றும்.',store:'பரிசுக் கடை',redh:'மீட்பு வரலாறு',pending:'நிலுவையில்',approved:'அங்கீகரிக்கப்பட்டது',rejected:'நிராகரிக்கப்பட்டது',delivered:'வழங்கப்பட்டது',guest:'விருந்தினர் (உள்நுழையவில்லை)',ach:'சாதனை பேட்ஜ்கள்',tx:'நாணய பரிவர்த்தனைகள்',ok:'சரி!',bad:'தவறு',coinnote:'நாணயங்கள் பின்னர் சேவையகம் மூலம் வழங்கப்படும்.'},
+si:{home:'මුල් පිටුව',ai:'AI සහායක',play:'ICT චැම්පියන්ස්',rewards:'ත්‍යාග',profile:'පැතිකඩ',lb:'ශ්‍රේණිගත කිරීම',coins:'කාසි',quizzes:'සම්පූර්ණ කළ ප්‍රශ්නාවලි',ask:'ඔබේ ප්‍රශ්නය ලියන්න…',send:'යවන්න',newchat:'නව සංවාදය',delchat:'සංවාදය මකන්න',copied:'පිටපත් කළා',notconn:'AI පිළිතුරු තවමත් සම්බන්ධ කර නැත. Gemini සම්බන්ධතාව පසුව ආරක්ෂිත සේවාදායකයක් හරහා එක් කෙරේ.',beginner:'ආරම්භක',intermediate:'මධ්‍යම',advanced:'උසස්',practice:'පුහුණුව',timec:'කාල අභියෝගය',daily:'දෛනික අභියෝගය',comp:'ICT තරඟ',soon:'පසුව එක් කෙරේ',next:'ඊළඟ',finish:'අවසන්',score:'ලකුණු',retry:'නැවත උත්සාහ කරන්න',back:'ආපසු',login:'ඇතුල් වන්න',register:'ලියාපදිංචි වන්න',email:'විද්‍යුත් තැපෑල',pass:'මුරපදය',name:'සම්පූර්ණ නම',forgot:'මුරපදය අමතකද?',authnote:'පිවිසුම තවමත් සම්බන්ධ කර නැත. Firebase පිවිසුම 2 වන අදියරේදී එක් කෙරේ.',empty:'තවමත් දත්ත නැත.',note:'Firebase සම්බන්ධ කළ පසු සැබෑ ශ්‍රේණිගත කිරීම් පෙන්වයි.',store:'ත්‍යාග වෙළඳසැල',redh:'මුදා ගැනීමේ ඉතිහාසය',pending:'පොරොත්තුවෙන්',approved:'අනුමත',rejected:'ප්‍රතික්ෂේපිත',delivered:'බෙදා හරින ලදී',guest:'ආගන්තුක (පිවිසී නැත)',ach:'ජයග්‍රහණ ලාංඡන',tx:'කාසි ගනුදෙනු',ok:'නිවැරදියි!',bad:'වැරදියි',coinnote:'කාසි පසුව සේවාදායකය මගින් ලබා දෙනු ඇත.'}};
+let L='en';try{L=localStorage.getItem('nx_l')||'en'}catch(e){}
+const t=k=>(D[L]&&D[L][k])||D.en[k]||k;
+function toast(m){const e=$('#toast');e.textContent=m;e.hidden=false;clearTimeout(toast.h);toast.h=setTimeout(()=>e.hidden=true,2600)}
+function ap(){document.documentElement.lang=L;$('#lang').value=L;
+$$('[data-i]').forEach(e=>e.textContent=t(e.dataset.i));$$('[data-p]').forEach(e=>e.placeholder=t(e.dataset.p));
+chat()}
+$('#lang').onchange=e=>{L=e.target.value;try{localStorage.setItem('nx_l',L)}catch(x){}ap()};
+function go(){let h=location.hash.slice(1)||'home';if(!$('#'+h+'.pg'))h='home';
+$$('.pg').forEach(p=>p.hidden=p.id!==h);$$('nav a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+h));scrollTo(0,0)}
+addEventListener('hashchange',go);
+/* ---- Chat (stored on this device only) ---- */
+let C=[];try{C=JSON.parse(localStorage.getItem('nx_c')||'[]')}catch(e){}
+let cur=C.length?C[0].id:0;
+const sv=()=>{try{localStorage.setItem('nx_c',JSON.stringify(C))}catch(e){}};
+function chat(){$('#hist').innerHTML=C.map(c=>`<span class="chip${c.id===cur?' on':''}" data-id="${c.id}">${esc((c.m[0]?c.m[0].x:'…').slice(0,18))}</span>`).join('');
+const c=C.find(c=>c.id===cur);$('#msgs').innerHTML=c?c.m.map((m,i)=>`<div class="m ${m.r}">${esc(m.x)}${m.r==='b'?`<button class="cp" data-c="${i}">⧉ ${t('copy')}</button>`:''}</div>`).join(''):'';$('#msgs').scrollTop=1e9}
+D.en.err='Sorry, the AI could not answer. Please try again.';D.ta.err='மன்னிக்கவும், AI பதிலளிக்க முடியவில்லை. மீண்டும் முயற்சிக்கவும்.';D.si.err='සමාවන්න, AI පිළිතුරු දීමට නොහැකි විය. නැවත උත්සාහ කරන්න.';D.en.copy='Copy';D.ta.copy='நகலெடு';D.si.copy='පිටපත් කරන්න';
+$('#nc').onclick=()=>{cur=0;chat();$('#ci').focus()};
+$('#dc').onclick=()=>{C=C.filter(c=>c.id!==cur);cur=C.length?C[0].id:0;sv();chat()};
+$('#hist').onclick=e=>{const id=e.target.dataset.id;if(id){cur=+id;chat()}};
+$('#msgs').onclick=e=>{const i=e.target.dataset.c;if(i==null)return;const c=C.find(c=>c.id===cur);
+try{navigator.clipboard.writeText(c.m[i].x).then(()=>toast(t('copied')),()=>{})}catch(x){}};
+let busy=0;
+$('#cf').onsubmit=e=>{e.preventDefault();const x=$('#ci').value.trim();if(!x||busy)return;busy=1;$('#ci').value='';
+let c=C.find(c=>c.id===cur);if(!c){c={id:Date.now(),m:[]};C.unshift(c);cur=c.id}
+c.m.push({r:'u',x});sv();chat();$('#msgs').insertAdjacentHTML('beforeend','<div class="m b dots"><i></i><i></i><i></i></div>');$('#msgs').scrollTop=1e9;
+fetch('/.netlify/functions/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:c.m.filter(m=>!m.e)})}).then(r=>r.json().then(d=>({ok:r.ok,d}))).then(({ok,d})=>{c.m.push(ok&&d.reply?{r:'b',x:d.reply}:{r:'b',x:t('err'),e:1})}).catch(()=>{c.m.push({r:'b',x:t('err'),e:1})}).finally(()=>{busy=0;sv();chat()})};
+$$('.auth').forEach(f=>f.onsubmit=e=>{e.preventDefault();toast(t('authnote'))});
+$('.fg').onclick=e=>{e.preventDefault();toast(t('authnote'))};
+ap();go();
+</script></body></html>
